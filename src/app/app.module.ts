@@ -6,13 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DayOneComponent } from './day-one/day-one.component';
 import { DayTwoComponent } from './day-two/day-two.component';
+import { DayThreeComponent } from './day-three/day-three.component';
+import { DayFourComponent } from './day-four/day-four.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DayOneComponent,
-    DayTwoComponent
+    DayTwoComponent,
+    DayThreeComponent,
+    DayFourComponent
   ],
   imports: [
     BrowserModule,

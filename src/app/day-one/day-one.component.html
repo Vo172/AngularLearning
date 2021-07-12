@@ -1,0 +1,32 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="headerOne">
+      <h2 class="display-4 text-center mt-3 lbDay">DAY ONE</h2>
+      <p class="text-center">Data binding,Event binding and two way binding</p>
+      <hr class="my-4">
+    </div>
+    <div class="bodyOne">
+      <form>
+        <!-- Data binding -->
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input [type]="inputType" [value]="user.name" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Age</label>
+          <input [type]="inputType" [value]="user.age" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+      <!-- 2 way binding : Khong the su dung trong -->
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="name2" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>

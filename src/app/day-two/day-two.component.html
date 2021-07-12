@@ -1,0 +1,112 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <!-- *ngIf structural directive -->
+        <div>
+            <div class="headerTwo">
+                <h2 class="display-4 text-center mt-3 lbDay">DAY TWO</h2>
+                <hr />
+                <p class="text-center lbLesson">*ngIf structural directive</p>
+                <hr>
+            </div>
+            <div class="bodyTwo">
+                <h3 *ngIf="user.age >= 18;else under18"> Hello {{user.name}}</h3>
+                <ng-template #under18>
+                    <p class="warning">You are too young !!!</p>
+                </ng-template>
+                <p><i>Enter your age :</i></p>
+                <button type="button" (click)="user.age =user.age + 1" class="btn btn-outline-info">+</button>
+                <span class="age">{{user.age}}</span>
+                <button type="button" (click)="user.age =user.age - 1" class="btn btn-outline-info">-</button>
+            </div>
+        </div>
+        <!-- *ngFor structural directive -->
+        <div>
+            <div>
+                <hr />
+                <p class="text-center lbLesson">*ngFor structural directive</p>
+                <hr>
+            </div>
+            <div>
+                <p>List of author :</p>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">IP Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Mot so method co the dung trong ngFor:
+                        + $implicit : item Implicit context variable
+                        + index : so thu tu cua item hien tai
+                        + count : do dai cua array
+                        + first : true neu nhu item do la item dau tien trong array
+                        + last : true neu nhu item do la item cuoi cung
+                        + even : true neu nhu item do la item vi tri chan
+                        + odd : true neu nhu item do la item vtri le
+                    -->
+                        <ng-container *ngIf="authors.length>0;else noData">
+                            <tr *ngFor="let author of authors;let i = index;count as total;last as isLast">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{author.firstName}}</td>
+                                <td>{{author.lastName}}</td>
+                                <td>{{author.email}}</td>
+                                <td>{{author.gender}}</td>
+                                <td>{{isLast?total:author.ipAddress}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{authors.length+1}}</th>
+                                <td colspan="4" class="text-center">TOTAL</td>
+                                <td>100</td>
+                            </tr>
+                        </ng-container>
+                        <ng-template #noData>
+                            <tr>
+                                <td colspan="6">Khong co du lieu de hien thi</td>
+                            </tr>
+                        </ng-template>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Class & Style Binding - Read Description -->
+        <div>
+            <div>
+                <hr />
+                <p class="text-center lbLesson">Class & Style Binding - Read Description</p>
+                <hr>
+            </div>
+            <!-- cac cach de toggle 1 Class
+            + [class.ten-class]= boolean
+            + [class] = "array"
+            + [class] = "object"  => {[ten-class:string]: boolean}
+            + [class] = "variable" => type String bao gom cac class can them 
+        -->
+            <div class="text-center">
+                <button type="button" (click)="isDanger=!isDanger" class="btn btn-outline-info">Toggle Danger</button>
+                <button type="button" (click)="isWarning=!isWarning" class="btn btn-outline-info">Toggle
+                    Warning</button>
+                <div class="box" [class.red-border]="isDanger" [class.yellow-bg]="isWarning"></div>
+            </div>
+            <!-- Cach them Style :
+                + [style.tenStyle] : su dung kieu Camel
+                + [style.ten-Style] : su dung kieu co ban
+                + [style.tenStyle.unit] : su dung de truyen vao don vi : em,rem,px
+                + [style] = "object" : property la Camel type
+            -->
+            <div>
+                <h5 [style.color]="'red'" 
+                    [style.fontStyle]="'italic'" 
+                    [style.fontSize.px]="20"
+                    [style]="{textTransform: 'uppercase'}"
+                    >Test them class vao Tag</h5>
+                    
+            </div>
+        </div>
+    </div>
+</div>

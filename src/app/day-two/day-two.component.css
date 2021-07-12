@@ -1,0 +1,32 @@
+.age{
+    font-size: 22px;
+    padding: 0 10px;
+    font-weight: 500;
+    color: #116e92d8;
+}
+.bodyTwo button{
+    width: 40px;
+}
+.warning{
+    color: rgba(228, 48, 48, 0.856);
+}
+.lbLesson{
+    color: rgb(0, 110, 255);
+}
+.lbDay{
+    color: red;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    padding: 20px 40px;
+    margin: 10px;
+    border: 2px solid black;
+}
+.red-border{
+    border: 2px solid red;
+}
+.yellow-bg{
+    background: yellow;
+}
